@@ -29,3 +29,20 @@ var inorderTraversal = function(root) {
 
 
 // Iterative
+
+var inorderTraversal = function(root) {
+  let result = [];
+  let stack = [];
+  while(stack.length || root) {
+      if (root) {
+          stack.push(root);
+          root = root.left;
+      } else {
+          let node = stack.pop()
+          result.push(node.val);
+          root = node.right;
+      };
+  };
+
+  return result;
+};
